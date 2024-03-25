@@ -1,14 +1,4 @@
-FROM ubuntu:latest
-
-RUN apt-get update
-RUN apt-get install openjdk-21-jdk -y
-COPY . /app
-
-RUN apt-get install maven -y
-RUN cd app && mvn clean install
-
+FROM adoptopenjdk/openjdk11:alpine-jre
+COPY target/app_docker-0.0.1-SNAPSHOT.jar /app/app.jar
 EXPOSE 8080
-
-RUN cp -r /app/app.jar
-
-ENTRYPOINT [ "java", "-jar", "/app/app.jar"]
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
