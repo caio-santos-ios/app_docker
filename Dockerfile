@@ -5,7 +5,7 @@ RUN apt-get install openjdk-21-jdk -y
 COPY . /app
 
 RUN apt-get install maven -y
-RUN cd app && mvn clean install
+RUN mvn clean install
 
 EXPOSE 8080
 
