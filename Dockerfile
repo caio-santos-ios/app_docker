@@ -9,6 +9,6 @@ RUN mvn clean install
 
 EXPOSE 8080
 
-RUN target/app_docker-0.0.1-SNAPSHOT.war /app/app.jar
+RUN target/app_docker-0.0.1-SNAPSHOT.war /app/app.war
 
-ENTRYPOINT [ "java", "-jar", "/app/app.jar"]
+ENTRYPOINT [ "java", "-jar", "/app/app.war"]
